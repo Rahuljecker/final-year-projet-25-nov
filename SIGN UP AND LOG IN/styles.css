@@ -1,0 +1,553 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wgnt@300;400;700&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body,
+input {
+	font-family: 'Poppins' , sans-serif;
+}
+.container{
+	position: relative;
+	width: 100%;
+	background-color: #fff;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+
+
+.forms-container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+	
+}
+
+.container::before{
+	content: '';
+	position: absolute;
+	height: 2000px;
+	width: 2000px;
+	top: -20%;
+	right: 68%;
+	background-image: linear-gradient(-45deg, #20dbc2 20%, #00bfa6 100%);
+	transform: translateY(-50%);
+	border-radius: 58%;
+	z-index: 6;
+	transition: 1.8s ease-in-out; 
+}
+
+
+form{
+	display: flex; 
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 5rem;
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.title{
+	font-size: 2.2rem;
+	color: #444;
+	margin-bottom: 10px;
+}
+
+
+.input-field{
+	max-width: 380px;
+	width: 100%;
+	height: 55px;
+	background-color: #f0f0f0;
+	margin: 10px 0;
+	border-radius: 55px;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	padding: 0 0.4rem;
+	position: relative;
+}
+
+.input-field i{
+	text-align: center;
+	line-height: 55px;
+	color: #acacac;
+	font-size: 1.5rem;
+}
+
+.input-field input{
+	background: none;
+	outline: none;
+	border: none;
+	line-height: 1;
+	font-weight: 600;
+	font-size: 1.2rem;
+	color: #333;
+}
+
+.input-field input:placeholder-shown{
+	color:#aaa;
+	font-weight:500;
+}
+
+.btn{
+	width:150px;
+	height:49px;
+	outline: none;
+	border: none;
+	border-radius:48px;
+	background-color: #20dbc2;
+	color: white;	
+	text-transform: uppercase;
+	font-weight: 600;
+	margin: 10px 0;
+	transition: all 0.5s;
+}
+
+.btn:hover {
+	background-color: #00bfa6;
+}
+
+.social-text{
+	padding: 0.7rem 0;
+}
+
+.social-media{
+	display: flex;
+	justify-content: center;
+}
+	
+.social-icon{
+	height: 46px;
+	width: 46px;
+	border: 1px solid #333;
+	margin: 0 0.45rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color: #333;
+	font-size: 1.3rem;
+	border-radius: 50%;
+	transition: all 0.8s;
+}
+
+.social-icon:hover{
+	color: #20dbc2;
+	border-color: #00bfa6;
+}
+
+.signin-signup{
+	position: absolute;
+	top: 50%;
+	left: 75%;
+	transform: translate(-50%,-50%);
+	display: grid;
+	grid-template-columns: 1fr;
+	z-index: 5;
+}
+
+form.sign-in-form{
+	z-index: 2;
+}
+
+form.sign-up-from{
+	z-index: 1;
+	opacity: 0;
+}	
+
+.image{
+	width: 100%;
+	transition: 2.1s 0.8s ease-in-out;
+}
+
+.panels-container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+} 
+
+.panel{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 7;
+}
+
+.left-panel{
+	padding: 3rem 17% 2rem 12%;
+}
+.right-panel{
+	padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content{
+	color: #fff;
+	transition: .9s .6s ease-in-out;
+}
+
+
+.panel h3{
+	font-weight: 600;
+	line-height: 1;
+	font-size: 1.5rem;
+}
+
+.panel p{
+	font-size: 0.95rem;
+	padding: 0.7rem 0;
+} 	
+
+.btn.transparent{
+	margin: 0;
+	background: none;
+	border: 2px solid #fff;
+	width: 130px;
+	height:41px;
+	font-weight: 600;
+	font-size: 0.8rem;
+}
+
+.right-panel .content,
+.right-panel .image{
+	transform: translateX(800px);
+} 
+
+/*ANIMATION*/
+
+/* .container.sign-up-mode::before {
+		transform: translate(100%, -50%);
+		right: 52%;
+
+}
+.container.sign-up-mode.left-panel.image,
+.container.sign-up-mode.left-panel.content{
+	transform: translate(-800px);
+}
+
+.container.sign-up-mode.right-panel.image,
+.container.sign-up-mode.right-panel.content{
+	transform: translateX(0%);
+}
+
+.container.sign-up-mode .left-panel{
+	pointer-events: none;
+}
+
+.container.sign-up-mode .right-panel{
+	pointer-events: all;
+}
+
+.container.sign-up-mode .signin-signup {
+	left: 25%;
+}
+
+.container.sign-up-mode form.sign-in-form{
+	z-index: 2;
+	opacity: 0;
+}
+
+.container.sign-up-mode form.sign-up-form{
+	z-index: 2;
+	opacity: 1;
+}  */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --linear-grad: linear-gradient(to right, #141E30, #243B55);
+    --grad-clr1: #141E30;
+    --grad-clr2: #243B55;
+}
+
+body {
+    height: 100vh;
+    background: #f6f5f7;
+    display: grid;
+    place-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+	position: relative;
+	width: 850px;
+	height: 500px;
+	background-color: #489662;
+	box-shadow: 25px 33px 55px #5557;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.form-container
+{
+	position: absolute;
+	width: 60%;
+	height: 100%;
+	padding: 0px 40px;
+	transition: all 0.25s ease-in-out;
+}
+
+.sign-up-container
+{
+	opacity: 0;
+	z-index: 1;
+}
+.sign-in-container
+{
+	z-index: 2;
+}
+
+
+form{
+	height: 100%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 50px;
+}
+
+h1{
+	color: var(--grad-clr1);
+}
+
+.social-container
+{
+	margin: 20px 0px;
+}
+
+
+.social-container a
+{
+	border:1px solid white;
+	border-radius: 60%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width:40px;
+	
+}
+
+.span{
+	font-size: 12px;
+}
+
+.infield
+{
+	position: relative;
+	margin: 12px 0px;
+	width: 100%;
+}
+
+
+
+input 
+{
+width: 100%;
+padding: 12px 32px ;
+background-color: #f3f3f3;
+border: none;
+outline: none;
+}
+
+label{
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0%;
+	height: 4px;
+	background: var(--linear-grad);
+	transition: 0.4s;
+}
+
+
+input:focus ~ label{
+	width: 100%;
+}
+
+a{
+	color: #333;
+	font-size: 12px;
+	text-decoration: none;
+	margin: 15px 5px;
+
+}
+
+
+a.forgot
+{
+	padding-bottom: 3px;
+	border-bottom: 2px solid #f6f5f7;
+	color: white;
+
+}
+
+button{
+	border-radius: 25px;
+	border: 2px solid var(--grad-clr1);
+	background: var(--grad-clr2);
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 12px 25px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.form-container button{
+	margin-top: 17px;
+	transition: 80ms ease-in;
+}
+
+.form-container button:hover{
+	background: rgb(175, 90, 90);
+	color: var(--grad-clr1);
+	cursor: pointer;
+}
+
+
+.overlay-container
+{
+	position:absolute;
+	top: 0;
+	left: 60%;
+	width: 40%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.8s ease-in-out;
+	z-index: 7;
+}
+
+
+#overlaybtn{
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	top: 304px;
+	transform: translateX(-50%);
+	width: 140px;
+	height: 40px;
+	border: 1px solid #FFF;
+	background: transparent;
+	border-radius: 20px;
+}
+
+.overlay{
+	position:relative;
+	background: var(--linear-grad);
+	color: #FFF;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+	transition: transform 0.6s ease-in-out;
+}
+
+
+.overlay-panel 
+{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 0px 40px;
+	height: 100%;
+	width: 340px;
+	transition: 0.6s ease-in-out;
+	 
+}
+
+.overlay-left
+{
+	right: 60%;
+	transform: translateX(-12%);
+}
+
+.overlay-right
+{
+	right: 0;
+	transform: translateX(0%);
+}
+
+.overlay-panel h1{
+color: #f6f5f7;
+}
+
+p{
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 25px 0px 35px;
+}
+
+.overlay-panel button{
+	border: none;
+}
+
+.right-panel-active .overlay-container
+{
+	transform: translateX(-150%);
+}
+
+.right-panel-active .overlay
+{
+	transform: translateX(50%);
+	
+}
+
+
+.right-panel-active .overlay-left{
+	transform: translateX(25%);
+}
+.right-panel-active .overlay-right{
+	transform: translateX(35%);
+}
+
+.right-panel-active.sign-in-container
+{
+	transform: translateX(20%);
+	opacity: 0;
+}
+.right-panel-active.sign-up-container
+{
+	transform: translateX(66.66%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s ;
+}
+
+@keyframes show {
+	0%,50%{
+		opacity: 0;
+		z-index: 1;
+	}
+	50.1%,100%{
+		opacity: 1;
+		z-index: 5;
+	}
+}
